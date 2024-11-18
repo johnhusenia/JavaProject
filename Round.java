@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Round {
 	ArrayList<Question> questions;
@@ -13,14 +14,25 @@ public class Round {
 			questions.add(question);
 			bq.getQuestions().remove(0); // always remove the first one
 		}
-	}; 
+	}
 	
-	public void nextQuestion() {
-		
-	};
+	public void printRound(int counter) {
+		System.out.print(
+				"**************************************************************\n"
+				+"Congratulations, you completed round#"+(counter+1)+" choose 1 option to continue\n"
+				+"1) Next round\n"
+				+"2) Walk away\n"
+				+"Your option: "
+		);
+	}
 	
-	public Boolean walkAway() {
-		return false;
+	public Boolean walkAway(String option) {
+		Boolean cond = false;
+		if (option.equals("2")) {
+			System.out.println("You did not get to the final but you get a price");
+			cond = true;
+		}
+		return cond;
 	}
 
 	public ArrayList<Question> getQuestions() {

@@ -19,50 +19,42 @@ public class Game {
 	public void gameOn() {
 		System.out.println("************************* Good luck! *************************");
 		Boolean cond = false;
-		int counter = 0;
+		int rCounter = 0;
+		int qCounter = 0;
 		BankQuestions bq = new BankQuestions();
 		Scanner sc = new Scanner(System.in);
+		Scanner sc1 = new Scanner(System.in);
 		bq.readFile(category);
 		createRounds(bq, category);
 		for(Round r: rounds) {
 			for(Question q: r.getQuestions()) {
-				System.out.print(
-						"Question "+(counter+1)+": "
-						+q.getMessage()+"\n"
-						+q.showOptions()+"\n"
-						+"Choose your option: "
-				);
-				String opt = sc.nextLine();
-				if(!q.isCorrect(opt)) {
+				q.printQuestion(qCounter); 
+				String str = sc.nextLine();
+				if(!q.isCorrect(str)) { //check if the answer is correct and set the question to correct
 					System.out.println(
 							"Sorry, the correct answer is "+q.getAnswer()
 							+"Good luck next time"
 					);
-					sc.close();
+					price = 0;
 					cond = true;
 				}
 				if(cond) break;
-				counter+=1;
+				price = q.getPrice();
+				qCounter++;
 			}
 			if(cond) break;
-			System.out.print(
-					"Current price: "+price+"\n"
-					+"Congratulations, you completed the round, choose 1 option to continue\n"
-					+"1) Next round\n"
-					+"2) Walk away\n"
-					+"Your option: "
-			);
-			int opt = sc.nextInt();
-			sc.reset();
-			if (opt == 2) {
-				break;
+			if(rCounter < 2) {
+				r.printRound(rCounter);
+				String str = sc1.nextLine();
+				cond = r.walkAway(str); //check if the user wants to walk away, get the money and end the game
 			}
+			if(cond) break;
+			rCounter++;
 		}
-		Question q = rounds.get(2).getQuestions().getLast();
+		Question q = rounds.getLast().getQuestions().getLast();
 		if(q.isCorrect) {
 			youWin(price);
 		}else {
-			price = 0;
 			youLost(price);
 		}
 		sc.close();
@@ -75,6 +67,7 @@ public class Game {
 		rounds.add(round1);
 		rounds.add(round2);
 		rounds.add(round3);
+		
 		for(Round round: rounds) {
 			if (category.equals("1")) {
 				round.pickQuestionsBank(bq, 3);
@@ -82,21 +75,36 @@ public class Game {
 				round.pickQuestionsBank(bq, 5);
 			}
 		}
+		setQuestionPrices(rounds, category);
 	}
 	
-	public void nextRound() {}
-	
+	public void setQuestionPrices(ArrayList<Round> rounds, String category) {
+		int counter = 0;
+		int[] easyPrices = {100,500,1000,8000,16000,32000,125000,500000,1000000};
+		int[] hardPrices = {100,200,300,500,1000,2000,4000,8000,16000,32000,64000,125000,250000,500000,1000000};
+		
+		for(Round r: rounds) {
+			for(Question q: r.getQuestions()) {
+				if(category.equals("1")) {
+					q.setPrice(easyPrices[counter]);
+				}else {
+					q.setPrice(hardPrices[counter]);
+				}
+				counter++;
+			}
+		}
+	}
+		
 	public void youWin(int price) {
 		System.out.println(
 				"Congratulations, you are a millionarie!!\n"
-				+"Current price: "+price
+				+"Current price: $"+price
 		);
 	}
 	
 	public void youLost(int price) {
 		System.out.println(
-				"Sorry, good luchh the next time\n"
-				+"Current price: "+price
+				"Current price: $"+price
 		);
 	}
 	

@@ -30,8 +30,7 @@ public class WWTBM {
 				String category = sc.nextLine();
 				Game game = new Game(username, category);
 				game.gameOn();
-				sc.close();
-				exitGame(sc1);
+				exitGame(sc);
 				break;
 			case 2:
 				System.out.println("************************* View Rules *************************");

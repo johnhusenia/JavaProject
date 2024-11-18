@@ -4,13 +4,26 @@ public class Question {
 	String difficulty;
 	String message;
 	ArrayList<Option> options;
+	int price;
 	Boolean isCorrect;
 	
 	public Question(String difficulty, String message) {
 		this.difficulty = difficulty;
 		this.message = message;
 		this.options = new ArrayList<>();
+		this.price = 0;
 		this.isCorrect = false;
+	}
+	
+	public void printQuestion(int counter) {
+		System.out.print(
+				"**************************************************************\n"
+				+"Price: $"+price+"\n"
+				+"Question "+(counter+1)+": "
+				+message+"\n"
+				+showOptions()+"\n"
+				+"Choose your option: "
+		);
 	}
 	
 	public String showOptions() {
@@ -43,8 +56,6 @@ public class Question {
 		}
 		return answer+"\n";
 	}
-	
-	public void youLost() {}
 
 	public String getDifficulty() {
 		return difficulty;
@@ -70,6 +81,12 @@ public class Question {
 		this.options = options;
 	}
 	
-	
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
 	
 }

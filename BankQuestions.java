@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class BankQuestions {
 	static String path = "/Users/edwin/Documents/1S_DatabaseAppDev/javaProgramming/groupProject/project/JavaProject/bankOfQuestions.txt";
-	ArrayList<Question> questions; //all 150 questions from the file, no shuffle or random
+	ArrayList<Question> questions;
 	
 	public BankQuestions() {
 		this.questions = new ArrayList<>();
