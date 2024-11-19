@@ -15,24 +15,29 @@ public class Question {
 		this.isCorrect = false;
 	}
 	
-	public void printQuestion(int counter) {
+	public void printQuestion(int qCounter, int rCounter, ArrayList<LifeLine> lifelines) {
 		System.out.print(
 				"**************************************************************\n"
 				+"Price: $"+price+"\n"
-				+"Question "+(counter+1)+": "
+				+"Question "+(qCounter+1)+": "
 				+message+"\n"
-				+showOptions()+"\n"
-				+"Choose your option: "
+				+showOptions()
+		);
+	}
+	
+	public void printCorrectAns() {
+		System.out.println(
+				"Sorry, the correct answer is "+getAnswer()
+				+"Good luck next time"
 		);
 	}
 	
 	public String showOptions() {
-		return 
-				options.get(0).getMessage()+"\n"
-				+options.get(1).getMessage()+"\n"
-				+options.get(2).getMessage()+"\n"
-				+options.get(3).getMessage()
-		;
+		String lines = "";
+		for(Option opt: options) {
+			lines = lines+opt.getMessage()+"\n";
+		}
+		return lines;
 	}
 
 	public Boolean isCorrect(String ans) {

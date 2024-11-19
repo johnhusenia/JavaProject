@@ -26,15 +26,43 @@ public class Game {
 		Scanner sc1 = new Scanner(System.in);
 		bq.readFile(category);
 		createRounds(bq, category);
+		createLifeLines();
 		for(Round r: rounds) {
 			for(Question q: r.getQuestions()) {
-				q.printQuestion(qCounter); 
-				String str = sc.nextLine();
+				q.printQuestion(qCounter, rCounter, lifeLines);
+				
+				if(lifeLines.size()>0) {
+					if(q.difficulty.equals("2") && rCounter>0) {
+						System.out.println("L) Use LifeLine");
+					}else if(q.difficulty.equals("1")) {
+						System.out.println("L) Use LifeLine");
+					}
+				}
+				
+				System.out.print("Choose your option: ");
+				String str = sc.nextLine().toUpperCase();
+				
+				if(str.equals("L")) {
+					for(int i=0; i<lifeLines.size(); i++) {
+						System.out.print(
+								(i+1)+ ") "+lifeLines.get(i).getName()+"\n"
+						);
+					}
+					System.out.print("Choose your lifeline: ");
+					int num = sc.nextInt()-1;
+					if(num>=0 && num<lifeLines.size()) {
+						LifeLine ll = lifeLines.get(num);
+						ll.executeLifeLine(q);
+						lifeLines.remove(num);
+						q.printQuestion(qCounter, rCounter, lifeLines);
+						str = sc.nextLine();
+						System.out.print("Choose your option: ");
+						str = sc.nextLine();
+					}
+				}
+				
 				if(!q.isCorrect(str)) { //check if the answer is correct and set the question to correct
-					System.out.println(
-							"Sorry, the correct answer is "+q.getAnswer()
-							+"Good luck next time"
-					);
+					q.printCorrectAns();
 					price = 0;
 					cond = true;
 				}
@@ -58,6 +86,7 @@ public class Game {
 			youLost(price);
 		}
 		sc.close();
+		sc1.close();
 	}
 	
 	public void createRounds(BankQuestions bq, String category) {
@@ -108,5 +137,12 @@ public class Game {
 		);
 	}
 	
-	public void useLifeLine() {}
+	public void createLifeLines() {
+		LifeLine lifeLine1 = new Fifty_Fifty("50/50");
+		LifeLine lifeLine2 = new AskAudience("Ask The Audience");
+		LifeLine lifeLine3 = new PhoneFriend("Phone A Friend");
+		lifeLines.add(lifeLine1);
+		lifeLines.add(lifeLine2);
+		lifeLines.add(lifeLine3);
+	}
 }

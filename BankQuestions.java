@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class BankQuestions {
@@ -44,6 +45,7 @@ public class BankQuestions {
                 question.setOptions(options);
                 questions.add(question);
             }
+//            Collections.shuffle(questions);
             
         } catch (FileNotFoundException e) {
             System.err.println(e);
