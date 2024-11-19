@@ -22,7 +22,6 @@ public class PhoneFriend extends LifeLine{
 		Collections.shuffle(wrongOpt);
 		 
 		int index = random.nextInt(4); //75% probability of answer in the result
-		System.out.println(index);
 		if(index==0) {
 			possibleOpt.add(wrongOpt.get(index));
 		}else {

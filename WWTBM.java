@@ -5,6 +5,8 @@ public class WWTBM {
 	public static void main(String[] args) {
 		Scanner sc1 = new Scanner(System.in);
 		int option = 0;
+		AnswerValidation av = new AnswerValidation();
+		Boolean ans1 = false;
 		while (option != 3) {
 			System.out.println("********** Welcome to Who Wants To Be a Millionaire **********");
 			System.out.print(
@@ -14,12 +16,17 @@ public class WWTBM {
 					+"3) Exit\n"
 					+"Your option: "
 			);
+			
+			do {
 			option = sc1.nextInt();
+			ans1 = av.Number1(option);
+			
+			}while(ans1 == false);
 			switch(option) {
 			case 1:
 				System.out.println("************************* Start Game *************************");
 				Scanner sc = new Scanner(System.in);
-				System.out.print("Please write your first name and last name: ");
+				System.out.print("Please write your full name: ");
 				String username = sc.nextLine();
 				System.out.print(
 						"Please choose a category: \n"
@@ -27,7 +34,11 @@ public class WWTBM {
 						+"2) Hard\n"
 						+"Your category: "
 				);
-				String category = sc.nextLine();
+				String category = "";
+				do {
+				category = sc.nextLine();
+				ans1 = av.Number2(category);
+				}while(ans1 == false);
 				Game game = new Game(username, category);
 				game.gameOn();
 				exitGame(sc);

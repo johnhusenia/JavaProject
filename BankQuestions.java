@@ -1,11 +1,14 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
 public class BankQuestions {
-	static String path = "/Users/edwin/Documents/1S_DatabaseAppDev/javaProgramming/groupProject/project/JavaProject/bankOfQuestions.txt";
+	static Path path = Paths.get("bankOfQuestions.txt");
+	
 	ArrayList<Question> questions;
 	
 	public BankQuestions() {
@@ -13,7 +16,7 @@ public class BankQuestions {
 	}
 
 	public void readFile(String category){
-        File file = new File(path);
+        File file = new File(path.toString());
         if (!file.exists()) {
             System.out.println("File does not exist; We cannot read it!");
             System.exit(0);

@@ -18,16 +18,23 @@ public class Game {
 	
 	public void gameOn() {
 		System.out.println("************************* Good luck! *************************");
+		// Variable declarion and scanner
 		Boolean cond = false;
 		int rCounter = 0;
 		int qCounter = 0;
 		BankQuestions bq = new BankQuestions();
 		Scanner sc = new Scanner(System.in);
 		Scanner sc1 = new Scanner(System.in);
+		
+		// calling readfile
 		bq.readFile(category);
 		createRounds(bq, category);
+		
 		createLifeLines();
+		
+		//Loop for rounds
 		for(Round r: rounds) {
+			//Loop for questions for each rounds
 			for(Question q: r.getQuestions()) {
 				q.printQuestion(qCounter, rCounter, lifeLines);
 				
@@ -40,6 +47,7 @@ public class Game {
 				}
 				
 				System.out.print("Choose your option: ");
+				
 				String str = sc.nextLine().toUpperCase();
 				
 				if(str.equals("L")) {
