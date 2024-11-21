@@ -18,16 +18,30 @@ public class WWTBM {
 			);
 			
 			do {
-			option = sc1.nextInt();
-			ans1 = av.Number1(option);
+	            try {
+	             
+	                option = sc1.nextInt();
+	                ans1 = av.Number1(option); 
+	                sc1.nextLine();
+	            } catch (Exception e) {
+	                System.out.print("Your input is invalid. Please choose your answer from the choices:");
+	                sc1.next();
+	            }
+	        }while (!ans1);
+
 			
-			}while(ans1 == false);
 			switch(option) {
 			case 1:
 				System.out.println("************************* Start Game *************************");
+				
 				Scanner sc = new Scanner(System.in);
-				System.out.print("Please write your full name: ");
-				String username = sc.nextLine();
+				System.out.println("Instruction: Please input your name without numbers");
+				System.out.print("Please write your name: ");
+				String username = "";
+			do {
+				username = sc.nextLine();
+				ans1 = av.name(username);
+			}while(ans1 == false);
 				System.out.print(
 						"Please choose a category: \n"
 						+"1) Easy\n"
