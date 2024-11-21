@@ -36,7 +36,7 @@ public class Game {
 		for(Round r: rounds) {
 			//Loop for questions for each rounds
 			for(Question q: r.getQuestions()) {
-				q.printQuestion(qCounter, rCounter, lifeLines);
+				q.printQuestion(qCounter);
 				
 				if(lifeLines.size()>0) {
 					if(q.difficulty.equals("2") && rCounter>0) {
@@ -50,7 +50,7 @@ public class Game {
 				
 				String str = sc.nextLine().toUpperCase();
 				
-				if(str.equals("L")) {
+				if(str.equals("L") && lifeLines.size()>0) {
 					for(int i=0; i<lifeLines.size(); i++) {
 						System.out.print(
 								(i+1)+ ") "+lifeLines.get(i).getName()+"\n"
@@ -62,7 +62,7 @@ public class Game {
 						LifeLine ll = lifeLines.get(num);
 						ll.executeLifeLine(q);
 						lifeLines.remove(num);
-						q.printQuestion(qCounter, rCounter, lifeLines);
+						q.printQuestion(qCounter);
 						str = sc.nextLine();
 						System.out.print("Choose your option: ");
 						str = sc.nextLine();

@@ -1,7 +1,7 @@
 
 public class AnswerValidation {
 	
-	public Boolean ABC(String answer) {
+	public Boolean abc(String answer) {
 		String[] options = {"A", "B", "C", "D"};
 		Boolean answer1 = false;
 		answer = answer.toUpperCase();
@@ -18,7 +18,7 @@ public class AnswerValidation {
 		
 	}
 	
-	public Boolean Number1(Integer answer) {
+	public Boolean number1(Integer answer) {
 		Integer[] options = {1, 2, 3};
 		Boolean answer1 = false;
 		for (Integer option : options) {
@@ -34,7 +34,7 @@ public class AnswerValidation {
 		
 	}
 	
-	public Boolean Number2(String answer) {
+	public Boolean number2(String answer) {
 		String[] options = {"1", "2"};
 		Boolean answer1 = false;
 		for (String option : options) {

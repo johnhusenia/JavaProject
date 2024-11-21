@@ -15,7 +15,7 @@ public class Question {
 		this.isCorrect = false;
 	}
 	
-	public void printQuestion(int qCounter, int rCounter, ArrayList<LifeLine> lifelines) {
+	public void printQuestion(int qCounter) {
 		System.out.print(
 				"**************************************************************\n"
 				+"Price: $"+price+"\n"

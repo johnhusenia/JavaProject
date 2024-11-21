@@ -19,7 +19,7 @@ public class WWTBM {
 			
 			do {
 			option = sc1.nextInt();
-			ans1 = av.Number1(option);
+			ans1 = av.number1(option);
 			
 			}while(ans1 == false);
 			switch(option) {
@@ -37,7 +37,7 @@ public class WWTBM {
 				String category = "";
 				do {
 				category = sc.nextLine();
-				ans1 = av.Number2(category);
+				ans1 = av.number2(category);
 				}while(ans1 == false);
 				Game game = new Game(username, category);
 				game.gameOn();
