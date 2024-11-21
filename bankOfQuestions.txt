@@ -41,11 +41,11 @@ D) Saturn
 A) Mars
 
 What is the chemical symbol for water?
-A) CO₂
-B) H₂O
+A) COâ‚‚
+B) Hâ‚‚O
 C) NaCl
-D) O₂
-B) H₂O
+D) Oâ‚‚
+B) Hâ‚‚O
 
 What gas do plants absorb from the atmosphere?
 A) Nitrogen
@@ -62,11 +62,11 @@ D) 226
 B) 206
 
 What is the boiling point of water at sea level?
-A) 50°C
-B) 100°C
-C) 150°C
-D) 200°C
-B) 100°C
+A) 50Â°C
+B) 100Â°C
+C) 150Â°C
+D) 200Â°C
+B) 100Â°C
 
 Which river is the longest in the world?
 A) Amazon
@@ -197,11 +197,11 @@ A) J.K. Rowling
 Who wrote "Pride and Prejudice"?
 A) Charles Dickens
 B) Jane Austen
-C) Emily Brontë
+C) Emily BrontÃ«
 D) Mark Twain
 B) Jane Austen
 
-What is the name of Sherlock Holmes’ partner?
+What is the name of Sherlock Holmesâ€™ partner?
 A) Watson
 B) Moriarty
 C) Lestrade
@@ -524,13 +524,13 @@ D) Modern Family
 B) The Big Bang Theory
 
 Who wrote Pride and Prejudice?
-A) Charlotte Brontë
+A) Charlotte BrontÃ«
 B) Jane Austen
-C) Emily Brontë
+C) Emily BrontÃ«
 D) Mary Shelley
 B) Jane Austen
 
-What is the name of Sherlock Holmes’ arch-enemy?
+What is the name of Sherlock Holmesâ€™ arch-enemy?
 A) Mycroft Holmes
 B) Dr. Watson
 C) Irene Adler
@@ -607,7 +607,7 @@ C) Uniform Standard Bus
 D) United System Bus
 B) Universal Serial Bus
 
-What is the programming language with the file extension “.py”?
+What is the programming language with the file extension â€œ.pyâ€�?
 A) Python
 B) Java
 C) Ruby
@@ -733,7 +733,7 @@ C) World War II
 D) Franco-Prussian War
 B) World War I
 
-What is the most abundant gas in the Earth’s atmosphere?
+What is the most abundant gas in the Earthâ€™s atmosphere?
 A) Oxygen
 B) Nitrogen
 C) Carbon Dioxide
@@ -847,7 +847,7 @@ B) The Louvre
 
 Which artist is associated with the technique of pointillism?
 A) Vincent van Gogh
-B) Paul Cézanne
+B) Paul CÃ©zanne
 C) Georges Seurat
 D) Claude Monet
 C) Georges Seurat
@@ -929,7 +929,7 @@ C) Probability of observed data given null hypothesis
 D) Standard deviation
 C) Probability of observed data given null hypothesis
 
-What is the Fibonacci sequence’s 10th term?
+What is the Fibonacci sequenceâ€™s 10th term?
 A) 21
 B) 34
 C) 55
@@ -1013,7 +1013,7 @@ C) Isaac Newton
 D) James Clerk Maxwell
 B) Albert Einstein
 
-The phrase “Et tu, Brute?” is from which Shakespearean play?
+The phrase â€œEt tu, Brute?â€� is from which Shakespearean play?
 A) Hamlet
 B) Macbeth
 C) Julius Caesar
@@ -1028,11 +1028,11 @@ D) Synonym
 B) Palindrome
 
 Who painted The Persistence of Memory, famous for its melting clocks?
-A) Salvador Dalí
+A) Salvador DalÃ­
 B) Pablo Picasso
 C) Claude Monet
 D) Vincent van Gogh
-A) Salvador Dalí
+A) Salvador DalÃ­
 
 Which ancient philosopher was the tutor of Alexander the Great?
 A) Plato
@@ -1041,10 +1041,10 @@ C) Socrates
 D) Heraclitus
 B) Aristotle
 
-
 The Nobel Prize for Literature in 1923 was awarded to which Irish poet and playwright?
 A) James Joyce
 B) W.B. Yeats
 C) Samuel Beckett
 D) George Bernard Shaw
 B) W.B. Yeats
+

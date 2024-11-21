@@ -8,31 +8,43 @@ public class AskAudience extends LifeLine{
 	}
 
 	public void executeLifeLine(Question q) {
-		ArrayList<Option> possibleOpt = new ArrayList<>();
-		ArrayList<Option> goodOpt = new ArrayList<>();
-		ArrayList<Option> wrongOpt = new ArrayList<>();
-		for(Option opt: q.getOptions()) {
-			if(opt.isCorrect) {
-				goodOpt.add(opt);
-			}else {
-				wrongOpt.add(opt);
-			}
-		}
-		Collections.shuffle(wrongOpt);
+        int[] abcd = {0,0,0,0};
+
+        // Generate a random number between 0 (inclusive) and 4 (exclusive)
+        for(int i = 0; i<50; i++) {
+
+        int randomNumber = random.nextInt(4);
+        
+        switch(randomNumber) {
+        
+        case 0:{
+        	abcd[0] += 1;
+        break;}
+       
+        case 1:{
+        	abcd[1] += 1;
+        break;}
+        
+        case 2:{
+        	abcd[2] += 1;
+        break;}
+        
+        case 3:{
+        	abcd[3] += 1;
+        break;}
+        	
+
+        }
+        }
+        int i = 0;
+        for(Option opt: q.getOptions()) {
+        	
+        	opt.setMessage(opt.getMessage()+" "+abcd[i]*2+"%");
+        	i++;
+        	
+        }
 		
-		int index1 = random.nextInt(2); //50% probability of answer in the result
-		if(index1 == 0) {
-			possibleOpt.add(goodOpt.get(index1));
-		}
-		int index2 = random.nextInt(3);
-		possibleOpt.add(wrongOpt.get(index2));
-		wrongOpt.remove(index2);
-		if(possibleOpt.size()<2) {
-			int index3 = random.nextInt(2);
-			possibleOpt.add(wrongOpt.get(index3));
-			wrongOpt.remove(index3);
-			
-		}
-		q.setOptions(possibleOpt);
+		
+		
 	}
 }
