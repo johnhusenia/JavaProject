@@ -54,7 +54,14 @@ public class Game {
 				String str = "";
 				do  {
 				 str = sc.nextLine().toUpperCase();
-				 ans1 = av.abcdl(str);
+				 
+				 if((lifeLines.size()==0) || ((category.equals("2")&& (rCounter==0)))) { // this will figure out we validation will include with l or not
+					 ans1 = av.abcd(str);
+				 }
+				 else {
+						 ans1 = av.abcdl(str);
+					}
+				 
 				}while (!ans1);
 				
 				if(str.equals("L") && lifeLines.size()>0) {

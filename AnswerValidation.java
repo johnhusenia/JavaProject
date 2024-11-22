@@ -39,11 +39,13 @@ public class AnswerValidation {
 	    
 	    if (answer.trim().isEmpty()) {
 	        System.out.println("You cannot use space/blank as a name!!!");
+	        System.out.print("Please enter a valid name:");
 	    } else {
 	        
 	        for (char ch : answer.toCharArray()) {
-	            if (Character.isDigit(ch)) {  
-	            	 System.out.println("You cannot use number as a name!!!");
+	        	// This is if will deny any non letters and will not deny space between your names
+	            if (!Character.isLetter(ch)&& ch != ' ') { 
+	            	System.out.println("You cannot use non-letter characters in a name!");
 	                System.out.println("Please enter a valid name: ");
 	                return false;  
 	            }
@@ -51,9 +53,6 @@ public class AnswerValidation {
 	       
 	        answer1 = true;
 	    }
-	    if (answer1 == false) {
-			System.out.print("Please enter a valid name:");
-		}
 
 	    return answer1;
 	}

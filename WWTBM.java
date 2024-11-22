@@ -33,7 +33,7 @@ public class WWTBM {
 				System.out.println("************************* Start Game *************************");
 				
 				Scanner sc = new Scanner(System.in);
-				System.out.println("Instruction: Please input your name without numbers");
+				System.out.println("Instruction: You cannot use non-letter characters in a name!");
 				System.out.print("Please write your name: ");
 				String username = "";
 			do {
@@ -58,6 +58,7 @@ public class WWTBM {
 			case 2:
 				System.out.println("************************* View Rules *************************");
 				printRules();
+				option= 00;
 				break;
 			case 3:
 				System.out.println("**************************** Exit ****************************");
