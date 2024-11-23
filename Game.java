@@ -76,7 +76,7 @@ public class Game {
 			            try {
 			            	
 			            	num = sc1.nextInt();
-			            	ans1 = av.number1(num); 
+			            	ans1 = av.lifeop(num,lifeLines.size()); 
 			            	num = num-1;
 			            } catch (Exception e) {
 			                System.out.println("Your answer is invalid. Please choose your answer from the choices:");

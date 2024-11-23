@@ -104,6 +104,28 @@ public class AnswerValidation {
 		
 	}
 	
+	public Boolean lifeop(Integer answer, Integer lifecount) {
+		Integer[] options = {1, 2, 3};
+		Boolean answer1 = false;
+		if(answer>lifecount) {
+			System.out.print("Your input is invalid. Please choose your answers from the choices: ");
+			return answer1;
+		}
+		for (Integer option : options) {
+			
+			if (option.equals(answer)) {
+				answer1 = true;
+				break;
+			}
+			
+		}
+		if (answer1 == false) {
+			System.out.print("Your input is invalid. Please choose your answers from the choices: ");
+		}
+		return answer1;
+		
+	}
+	
 	
 	
 
