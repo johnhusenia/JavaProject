@@ -7,6 +7,10 @@ public class WWTBM {
 		int option = 0;
 		AnswerValidation av = new AnswerValidation();
 		Boolean ans1 = false;
+		
+		Music music =  new Music();
+		music.start();
+		
 		while (option != 3) {
 			System.out.println("********** Welcome to Who Wants To Be a Millionaire **********");
 			System.out.print(
@@ -16,7 +20,6 @@ public class WWTBM {
 					+"3) Exit\n"
 					+"Your option: "
 			);
-			
 			do {
 	            try {
 	             
@@ -48,8 +51,8 @@ public class WWTBM {
 				);
 				String category = "";
 				do {
-				category = sc.nextLine();
-				ans1 = av.number2(category);
+					category = sc.nextLine();
+					ans1 = av.number2(category);
 				}while(ans1 == false);
 				Game game = new Game(username, category);
 				game.gameOn();
