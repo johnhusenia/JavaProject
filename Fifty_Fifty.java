@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-
+// Fifty_Fifty subclass of LifeLine, it has the parent properties and methods
 public class Fifty_Fifty extends LifeLine{
 	
 	public Fifty_Fifty(String name) {
@@ -8,6 +8,7 @@ public class Fifty_Fifty extends LifeLine{
 	}
 
 	@Override
+	// in this case executeLifeLine follow the logic of the Fifty_Fifty lifeline
 	public void executeLifeLine(Question q) {
 		ArrayList<Option> possibleOpt = new ArrayList<>();
 		ArrayList<Option> wrongOpt = new ArrayList<>();
@@ -16,7 +17,7 @@ public class Fifty_Fifty extends LifeLine{
 		int i = 0;
 		int b = 0;
 		for(Option opt: q.getOptions()) {
-			if(opt.isCorrect) {
+			if(opt.getIsCorrect()){
 				possibleOpt.add(opt); //100% probability of answer in the result
 				b = i;
 			}else {
@@ -27,14 +28,15 @@ public class Fifty_Fifty extends LifeLine{
 		int index = random.nextInt(wrongOpt.size());
 		possibleOpt.add(wrongOpt.get(index));
 		
-		if(b>index) {	//just sort the options
+		//this conditional just sort the possibleOpt
+		if(b>index) {	
 			sortedOpt.add(possibleOpt.get(1));
 			sortedOpt.add(possibleOpt.get(0));
 		}else {
 			sortedOpt.add(possibleOpt.get(0));
 			sortedOpt.add(possibleOpt.get(1));
 		}
-		q.setOptions(sortedOpt);
+		q.setOptions(sortedOpt); // number of Options for the question now change 
 	}
 	
 }

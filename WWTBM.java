@@ -1,17 +1,18 @@
 import java.util.Scanner;
 
+// WWTBM contains the main method and this is the main thread, the second thread is the MusicThread, 
+// no synchronization needed cause we want both running at the same time
 public class WWTBM {
-
 	public static void main(String[] args) {
 		Scanner sc1 = new Scanner(System.in);
 		int option = 0;
-		AnswerValidation av = new AnswerValidation();
+		AnswerValidation av = new AnswerValidation(); 
 		Boolean ans1 = false;
 		
-		Music music =  new Music();
+		MusicThread music =  new MusicThread(); // MusicThread contains the run method with the background music in a loop
 		music.start();
 		
-		while (option != 3) {
+		while (option != 3) { // if the user option is 3 the game ends
 			System.out.println("********** Welcome to Who Wants To Be a Millionaire **********");
 			System.out.print(
 					"Please select one of the following options:\n"
@@ -20,7 +21,7 @@ public class WWTBM {
 					+"3) Exit\n"
 					+"Your option: "
 			);
-			do {
+			do { // validate if the option is a number, if its not repeat the validation
 	            try {
 	             
 	                option = sc1.nextInt();
@@ -31,15 +32,14 @@ public class WWTBM {
 	                sc1.next();
 	            }
 	        }while (!ans1);
-			switch(option) {
+			switch(option) { // execute the user option 1, 2 or 3 after validation
 			case 1:
 				System.out.println("************************* Start Game *************************");
-				
 				Scanner sc = new Scanner(System.in);
 				System.out.println("Instruction: You cannot use non-letter characters in a name!");
 				System.out.print("Please write your name: ");
 				String username = "";
-			do {
+			do { // validate if the name is a not blank string, if its not repeat the validation
 				username = sc.nextLine();
 				ans1 = av.name(username);
 			}while(ans1 == false);
@@ -50,10 +50,12 @@ public class WWTBM {
 						+"Your category: "
 				);
 				String category = "";
-				do {
+				do { // validate if the category is a string 1 or 2, if its not repeat the validation
 					category = sc.nextLine();
 					ans1 = av.number2(category);
 				}while(ans1 == false);
+				
+				// here the game start with the username and category
 				Game game = new Game(username, category);
 				game.gameOn();
 				exitGame(sc);
@@ -61,6 +63,7 @@ public class WWTBM {
 			case 2:
 				System.out.println("************************* View Rules *************************");
 				printRules();
+				// reset the option value for the next user input
 				option= 00;
 				break;
 			case 3:
@@ -69,9 +72,11 @@ public class WWTBM {
 				break;
 			}
 		}
-
+		exitGame(sc1);
 	}
 	
+	
+	// printRules only print rules and return to the menu loop
 	public static void printRules(){
 		System.out.println(
 				"Game Rules\n\n"
@@ -95,6 +100,7 @@ public class WWTBM {
 		);
 	}
 	
+	// exitGame is executed when the option in the first menu is 3 or when the game finish (lose or win)
 	public static void exitGame(Scanner sc) {
 		sc.close();
 		System.exit(0);

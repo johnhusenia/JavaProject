@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+// Question most important fields are message to display, list of options including the correct Option, price for each question
+// and isCorrect to know if the question was answered correctly
 public class Question {
 	String difficulty;
 	String message;
@@ -15,6 +17,7 @@ public class Question {
 		this.isCorrect = false;
 	}
 	
+	// printQuestion only print the current question and its Options
 	public void printQuestion(int qCounter) {
 		System.out.print(
 				"**************************************************************\n"
@@ -25,13 +28,16 @@ public class Question {
 		);
 	}
 	
-	public void printCorrectAns() {
+	// printCorrectAns print the correct answer in case the user choose the wrong one. This means the user lost the game
+	public void printCorrectAns(String username) {
 		System.out.println(
-				"Sorry, the correct answer is "+getAnswer()
+				"Sorry "+ username +", the correct answer is "+getAnswer()
 				+"Good luck next time"
 		);
 	}
 	
+	// showOptions return a string with the options currently available in the question to be printed with the question
+	// considering that the content or number of options can change if a lifeline is executed 
 	public String showOptions() {
 		String lines = "";
 		for(Option opt: options) {
@@ -40,23 +46,26 @@ public class Question {
 		return lines;
 	}
 
+	// isCorrect check the user answer with each option and only if is the correct answer the question is set true and 
+	// return true, otherwise is set false, the return value is false and that means the user lost the game
 	public Boolean isCorrect(String ans) {
 		Boolean value = false;
 		for (Option opt: options) {
 			String optAns = (opt.getMessage().split("\\) "))[0];
 			if (optAns.equals(ans.toUpperCase())) {
-				value = opt.isCorrect;
+				value = opt.getIsCorrect();
 				isCorrect = value;
 			}
 		}
 		return value;
 	}
 	
+	// getAnswer return a string with the correct answer to be printed when the user choose an incorrect option
 	public String getAnswer() {
 		String answer = "";
 		for (Option opt: options) {
-			if(opt.isCorrect) {
-				answer = opt.message;
+			if(opt.getIsCorrect()) {
+				answer = opt.getMessage();
 			}
 		}
 		return answer+"\n";

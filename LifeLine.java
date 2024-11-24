@@ -1,6 +1,9 @@
 import java.util.Random;
 
+// LifeLine is a parent class that contains name and random and excecuteLifeLine method.
+// We can't create a instance of LifeLine object but an instance of its subclasses
 public abstract class LifeLine {
+	// the constructor and properties are the same for the subclasses
 	String name;
 	Random random;
 
@@ -10,6 +13,7 @@ public abstract class LifeLine {
 		this.random = new Random();
 	}
 
+	// each subclass has to implement the executeLifeLine method but with the corresponding logic
 	public void executeLifeLine(Question q) {};
 	
 	public String getName() {

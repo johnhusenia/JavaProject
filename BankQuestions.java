@@ -6,15 +6,18 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
+// BankQuestions has a list of all the questions in the path file 
 public class BankQuestions {
-	static Path path = Paths.get("bankOfQuestions.txt");
-	
-	ArrayList<Question> questions;
+	private static Path path = Paths.get("bankOfQuestions.txt");
+	private ArrayList<Question> questions;
 	
 	public BankQuestions() {
 		this.questions = new ArrayList<>();
 	}
 
+	// read the path file with the questions, options and answers and following the structure of the .txt file create 
+	// Questions and Options, setting all Questions false because hasn't been answered yet and all Options false 
+	// with the exception of the correct option (answer) that is set true
 	public void readFile(String category){
         File file = new File(path.toString());
         if (!file.exists()) {
@@ -29,7 +32,7 @@ public class BankQuestions {
                 String option3 = input.nextLine();
                 String option4 = input.nextLine();
                 String answer  = input.nextLine();
-                input.nextLine();
+                input.nextLine(); // in the file between after each answer there is a blank line
                 
                 ArrayList<Option> options = new ArrayList<>();
                 options.add(new Option(option1, false));
@@ -37,8 +40,10 @@ public class BankQuestions {
                 options.add(new Option(option3, false));
                 options.add(new Option(option4, false));
                 
-                for(Option option: options) {
-                	String letter = option.getMessage().split(": ")[0];
+                // iterate the Option list to check which one is the answer and change the value to true
+                for(Option option: options) { 
+                	// the first character is used to check if the option is the answer
+                	String letter = option.getMessage().split(": ")[0]; 
                 	if (letter.equals(answer)) {
                 		option.setIsCorrect(true);
                 	}
@@ -48,7 +53,7 @@ public class BankQuestions {
                 question.setOptions(options);
                 questions.add(question);
             }
-//            Collections.shuffle(questions);
+            Collections.shuffle(questions);
             
         } catch (FileNotFoundException e) {
             System.err.println(e);
